@@ -9,11 +9,8 @@ jobs:
   send-news:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - name: Run news script
         run: |
           pip install requests
-          python - <<'EOF'
-          import requests
-          from datetime import datetime
-
-          TOKEN = "8775655045:AAHlm9iraKRth_U8rgriT0wYZk0dr3631DE"
+          python ulsan_news.py
