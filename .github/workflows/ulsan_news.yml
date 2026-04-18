@@ -1,0 +1,19 @@
+name: 울산숙박업 뉴스
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  send-news:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run news script
+        run: |
+          pip install requests
+          python - <<'EOF'
+          import requests
+          from datetime import datetime
+
+          TOKEN = "8775655045:AAHlm9iraKRth_U8rgriT0wYZk0dr3631DE"
