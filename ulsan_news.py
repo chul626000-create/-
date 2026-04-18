@@ -29,3 +29,4 @@ news = search_news()
 msg = f"🏨 울산 숙박업 뉴스 - {today}\n\n{news}"
 print("보낼 메시지:", msg)
 send_telegram(msg)
+
