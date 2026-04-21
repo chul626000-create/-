@@ -1,4 +1,3 @@
-
 import requests
 from datetime import datetime
 
@@ -21,7 +20,8 @@ def search_news():
             title = item.split("<title>")[1].split("</title>")[0]
             title = title.replace("<![CDATA[","").replace("]]>","")
             pub_date = item.split("<pubDate>")[1].split("</pubDate>")[0]
-            items.append(f"• {title}\n  📅 {pub_date[:16]}")
+            link = item.split("<link>")[1].split("</link>")[0]
+            items.append(f"• {title}\n  📅 {pub_date[:16]}\n  🔗 {link}")
         except:
             pass
     
@@ -31,3 +31,4 @@ today = datetime.now().strftime("%Y년 %m월 %d일")
 news = search_news()
 msg = f"🏨 울산 숙박업 뉴스 - {today}\n\n{news}"
 send_telegram(msg)
+
